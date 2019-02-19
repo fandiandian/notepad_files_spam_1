@@ -207,17 +207,15 @@ def tick() :
             writer.pencolor(156, 156, 156)
             writer.goto(c_t_size[5][i][0], c_t_size[5][i][1])
             writer.write('{} {}'.format(g_d_time[1][i][0],g_d_time[1][i][1]), align="right", font=('Arial', int(p), 'normal'))
-        t.tracer(True)
+        t.update()
         # 绘制6个时间数码管
-        t.tracer(False)
         digitaler.clear()
         digitaler.hideturtle()
         digitaler.pu()
         for i in range(6) :
             seven_digital_tube(c_t_size[3][i][0],c_t_size[3][i][1], g_d_time[0][i], m, n, k)
-        t.tracer(True)
+        t.update()
         # 绘制时间冒号
-        t.tracer(False)
         dotor.clear()
         dotor.hideturtle()
         dotor.pu()
@@ -228,7 +226,7 @@ def tick() :
         else :
             for i in range(2) :
                 d_dot(c_t_size[4][i][0], c_t_size[4][i][1], 3*p/4, (212, 212, 212))
-        t.tracer(True)    
+        t.update()
         t.ontimer(tick, 100)
     except :
         print('遇到错误，请检查！')  # turtledemo user pressed STOP
@@ -247,7 +245,7 @@ t.colormode(255)
 def main() :
     t.tracer(False)
     draw_clock(m, n, k, p)
-    t.tracer(True)
+    t.update()
     tick()
     t.mainloop()
 
